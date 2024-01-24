@@ -30,3 +30,17 @@ The 'Window' class is designed to simplify SDL window creation and event handlin
 - 'window.cpp': Implementation file containing the code for the Window class.
 
 - 'main.cpp': Main function to create an instance of window.
+
+
+# Compilation
+
+Run this command on terminal to compile the file:
+
+    g++ main.cpp window.cpp -o main -lSDL2
+
+Then run the command bellow to execute the program:
+
+    ./main
+    
+
+    
