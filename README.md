@@ -32,7 +32,7 @@ The 'Window' class is designed to simplify SDL window creation and event handlin
 - 'main.cpp': Main function to create an instance of window.
 
 
-# Compilation
+# Compile and Run
 
 Run this command on terminal to compile the file:
 
