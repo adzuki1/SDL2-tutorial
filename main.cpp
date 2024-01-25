@@ -11,6 +11,7 @@ int main(){
     // look for events, while window is not closed
     while(!window.isClosed()){
         window.pollEvents();
+        window.clear();
     }
  
     return 0;

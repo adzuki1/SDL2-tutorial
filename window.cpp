@@ -5,14 +5,13 @@ Window::Window(const std::string &title, int width, int height) :
     _title(title), _width(width), _height(height)
 {
     // Initialize the window and check for initialization success
-    if(!init()){
-        _closed = true;
-    }
+    _closed = !init();
 }
 
 // Destructor: responsible for cleaning up resources associated with the window
 Window::~Window()
 {
+    SDL_DestroyRenderer(_renderer);
     SDL_DestroyWindow(_window);
     SDL_Quit();
 }
@@ -44,6 +43,13 @@ bool Window::init(){
         std::cerr << "Failed to create window: " << SDL_GetError() << std:: endl;
     }
 
+    _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
+
+    if(_renderer == nullptr){
+        std::cerr << "Failed to create render: " << SDL_GetError;
+        return 0;
+    }
+
     return true;
 }
 
@@ -63,4 +69,11 @@ void Window::pollEvents(){
             break;
         }
     }
+}
+
+void Window::clear() const{
+
+    SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
+    SDL_RenderClear(_renderer);
+    SDL_RenderPresent(_renderer);
 }
