@@ -1,4 +1,4 @@
-// Header file for the Window class, which encapsulates an SDL window
+ // Header file for the Window class, which encapsulates an SDL window
 
 #pragma once
 
@@ -14,6 +14,7 @@ public:
     ~Window();
 
     void pollEvents();
+    void clear() const;
 
     inline bool isClosed() const { return _closed; } 
 
@@ -28,5 +29,6 @@ private:
 
     bool _closed = false;
 
-    SDL_Window * _window = nullptr;
+    SDL_Window *_window = nullptr;
+    SDL_Renderer *_renderer = nullptr;
 };
